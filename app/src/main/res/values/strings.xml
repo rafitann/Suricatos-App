@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Suricatos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Bem Vinda</string>
+    <string name="userNameMock">Ariana Ayumi </string>
+    <string name="search_post">Pesquisar publicação</string>
+    <string name="categories">Categorias</string>
+    <string name="mock_email">ayumi@gmail.com</string>
+</resources>
