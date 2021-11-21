@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/blue"
@@ -103,7 +104,8 @@
                 android:background="@drawable/corner_radius"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtUserEmail" />
+                app:layout_constraintTop_toBottomOf="@id/txtUserEmail"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/txtSettingsAccount"
@@ -136,24 +138,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtSettingsAccount" />
 
-            <TextView
-                android:id="@+id/btnPreferences"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:background="#F1F1FA"
-                android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
-                android:drawablePadding="0dp"
-                android:gravity="fill"
-                android:paddingStart="16dp"
-                android:text="Preferências"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnEditProfile" />
-
 
             <TextView
                 android:id="@+id/txtSuport"
@@ -161,12 +145,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
                 android:text="Suporte"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnPreferences" />
+                app:layout_constraintTop_toBottomOf="@+id/btnEditProfile" />
 
             <TextView
                 android:id="@+id/btnHelp"
@@ -222,6 +205,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btnFAQ" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:text="Sair"
+                app:layout_constraintStart_toStartOf="@+id/btnAboutApp"
+                app:layout_constraintTop_toBottomOf="@id/btnAboutApp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
