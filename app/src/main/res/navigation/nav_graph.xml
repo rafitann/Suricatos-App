@@ -66,5 +66,7 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.app.suricatos.view.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings"
+        />
 </navigation>
