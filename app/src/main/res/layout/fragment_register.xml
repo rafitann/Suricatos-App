@@ -20,37 +20,46 @@
             android:layout_height="match_parent"
             android:animateLayoutChanges="true">
 
-            <ImageView
-                android:id="@+id/suricatos"
-                android:layout_width="55.64dp"
-                android:layout_height="114.18dp"
-                android:layout_marginTop="128dp"
-                android:src="@drawable/suricatos_icon"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardIconUserName"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="60dp"
+                app:cardCornerRadius="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_baseline_add_photo_alternate_24" />
+            </androidx.cardview.widget.CardView>
 
             <View
                 android:id="@+id/bgShape"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/corner_radius"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/suricatos" />
+                app:layout_constraintTop_toBottomOf="@id/cardIconUserName" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardSuricatos"
                 android:layout_width="0dp"
-                android:layout_height="600dp"
+                android:layout_height="500dp"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginVertical="24dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="#F1F1FA"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/suricatos"
+                app:layout_constraintTop_toBottomOf="@id/cardIconUserName"
                 app:layout_constraintVertical_bias="0.0">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,7 +70,7 @@
                         android:id="@+id/txtRegister"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="32dp"
                         android:text="Cadastrar-se"
                         android:textAlignment="center"
                         android:textColor="@color/black"
@@ -114,24 +123,24 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/edtEmail"
                         android:background="@drawable/shape_edit"
                         android:drawableStart="@drawable/ic_lock"
                         android:drawablePadding="25dp"
                         android:hint="Digite sua Senha"
                         android:padding="15dp"
                         android:textColorHint="#CCC4C4"
-                        android:textSize="14dp" />
+                        android:textSize="14dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/edtEmail" />
 
                     <Button
                         android:id="@+id/btnRegisterUser"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="60dp"
+                        android:layout_marginEnd="16dp"
                         android:background="@drawable/shape_button_pink"
                         android:text="Cadastrar"
                         android:textAllCaps="false"
