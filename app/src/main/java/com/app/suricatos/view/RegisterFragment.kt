@@ -67,17 +67,10 @@ class RegisterFragment : BaseFragment() {
     }
 
     fun btnRegister() {
-        binding.btnRegister.setOnClickListener {
+        binding.btnRegisterUser.setOnClickListener {
             val user = User(
                 binding.edtName.text.toString(),
-                binding.edtEmail.text.toString(),
-                Address(
-                    binding.edtAddress.text.toString(),
-                    binding.edtDistrict.text.toString(),
-                    binding.edtZipCode.text.toString(),
-                    binding.edtCity.text.toString(),
-                    binding.edtCountry.text.toString()
-                ), binding.edtPasswordRegister.text.toString()
+                binding.edtEmail.text.toString(), binding.edtPasswordRegister.text.toString()
             )
             viewModel.register(user)
         }
@@ -87,11 +80,6 @@ class RegisterFragment : BaseFragment() {
         validateName()
         validateEmail()
         validatePassword()
-        validateAddress()
-        validateDistrict()
-        validateCity()
-        validateZipCode()
-        validateCountry()
     }
 
     private fun validateName() {
@@ -131,63 +119,4 @@ class RegisterFragment : BaseFragment() {
         }
     }
 
-    private fun validateAddress() {
-        binding.edtAddress.setOnFocusChangeListener { _, hasFocus: Boolean ->
-            if (hasFocus) return@setOnFocusChangeListener
-
-            if (binding.edtAddress.text.isEmpty() && binding.edtAddress.text.isNullOrBlank()) {
-                binding.edtAddress.error = "Digite seu Endereço"
-            } else {
-                binding.edtAddress.error = null
-            }
-        }
-    }
-
-    private fun validateDistrict() {
-        binding.edtDistrict.setOnFocusChangeListener { _, hasFocus: Boolean ->
-            if (hasFocus) return@setOnFocusChangeListener
-
-            if (binding.edtDistrict.text.isEmpty() && binding.edtDistrict.text.isNullOrBlank()) {
-                binding.edtDistrict.error = "Digite seu Bairro"
-            } else {
-                binding.edtDistrict.error = null
-            }
-        }
-    }
-
-    private fun validateCity() {
-        binding.edtCity.setOnFocusChangeListener { _, hasFocus: Boolean ->
-            if (hasFocus) return@setOnFocusChangeListener
-
-            if (binding.edtCity.text.isEmpty() && binding.edtCity.text.isNullOrBlank()) {
-                binding.edtCity.error = "Digite seu Cidade"
-            } else {
-                binding.edtCity.error = null
-            }
-        }
-    }
-
-    private fun validateZipCode() {
-        binding.edtZipCode.setOnFocusChangeListener { _, hasFocus: Boolean ->
-            if (hasFocus) return@setOnFocusChangeListener
-
-            if (binding.edtZipCode.text.isEmpty() && binding.edtZipCode.text.isNullOrBlank()) {
-                binding.edtZipCode.error = "Digite seu CEP"
-            } else {
-                binding.edtZipCode.error = null
-            }
-        }
-    }
-
-    private fun validateCountry() {
-        binding.edtCountry.setOnFocusChangeListener { _, hasFocus: Boolean ->
-            if (hasFocus) return@setOnFocusChangeListener
-
-            if (binding.edtCountry.text.isEmpty() && binding.edtCountry.text.isNullOrBlank()) {
-                binding.edtCountry.error = "Digite seu Estado"
-            } else {
-                binding.edtCountry.error = null
-            }
-        }
-    }
 }
