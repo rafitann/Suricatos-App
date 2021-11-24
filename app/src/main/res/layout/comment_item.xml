@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:background="#F1F1FA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardIconUserName"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_kimiko" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Maria Cleusa"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:text="heehefheufuehfuefheufheufhfeuhfhehfefuefhuehfeufuehfehfuehfuehfeufhuehfuehffheufeufhuhfeufheufuef"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="65dp"
+                android:text="10"
+                android:textSize="9dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/ic_heart"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="66dp"
+            />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.appcompat.widget.LinearLayoutCompat>
