@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,11 +31,11 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_baseline_add_photo_alternate_24" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/ic_group_blue" />
             </androidx.cardview.widget.CardView>
 
             <View
@@ -52,7 +51,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardSuricatos"
                 android:layout_width="0dp"
-                android:layout_height="500dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginVertical="24dp"
                 android:layout_marginTop="32dp"
@@ -63,95 +62,155 @@
                 app:layout_constraintTop_toBottomOf="@id/cardIconUserName"
                 app:layout_constraintVertical_bias="0.0">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/txtRegister"
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
-                        android:text="Cadastrar-se"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:layout_height="match_parent">
 
-                    <EditText
-                        android:id="@+id/edtName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/shape_edit"
-                        android:drawableStart="@drawable/ic_baseline_person_outline_24"
-                        android:drawablePadding="25dp"
-                        android:foregroundGravity="center|center_horizontal"
-                        android:hint="Digite seu Nome"
-                        android:padding="15dp"
-                        android:textColorHint="#CCC4C4"
-                        android:textSize="14dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txtRegister" />
+                        <TextView
+                            android:id="@+id/txtRegister"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="32dp"
+                            android:text="Cadastrar-se"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <EditText
-                        android:id="@+id/edtEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/shape_edit"
-                        android:drawableStart="@drawable/ic_email"
-                        android:drawablePadding="25dp"
-                        android:hint="Digite seu Email"
-                        android:padding="15dp"
-                        android:textColorHint="#CCC4C4"
-                        android:textSize="14dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/edtName" />
+                        <EditText
+                            android:id="@+id/edtName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/shape_edit"
+                            android:drawableStart="@drawable/ic_baseline_person_outline_24"
+                            android:drawablePadding="25dp"
+                            android:foregroundGravity="center|center_horizontal"
+                            android:hint="Digite seu Nome"
+                            android:padding="15dp"
+                            android:textColorHint="#CCC4C4"
+                            android:textSize="14dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/txtRegister" />
+
+                        <EditText
+                            android:id="@+id/edtEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/shape_edit"
+                            android:drawableStart="@drawable/ic_email"
+                            android:drawablePadding="25dp"
+                            android:hint="Digite seu Email"
+                            android:padding="15dp"
+                            android:textColorHint="#CCC4C4"
+                            android:textSize="14dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/edtName" />
 
 
-                    <EditText
-                        android:id="@+id/edtPasswordRegister"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/shape_edit"
-                        android:drawableStart="@drawable/ic_lock"
-                        android:drawablePadding="25dp"
-                        android:hint="Digite sua Senha"
-                        android:padding="15dp"
-                        android:textColorHint="#CCC4C4"
-                        android:textSize="14dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/edtEmail" />
+                        <EditText
+                            android:id="@+id/edtBirthday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/shape_edit"
+                            android:drawablePadding="25dp"
+                            android:hint="Digite sua data de nascimento"
+                            android:inputType="number"
+                            android:padding="15dp"
+                            android:textColorHint="#CCC4C4"
+                            android:textSize="14dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/edtEmail" />
 
-                    <Button
-                        android:id="@+id/btnRegisterUser"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/shape_button_pink"
-                        android:text="Cadastrar"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        app:layout_constraintEnd_toEndOf="@id/edtPasswordRegister"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@id/edtPasswordRegister"
-                        app:layout_constraintTop_toBottomOf="@id/edtPasswordRegister" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/txtTypeUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:gravity="start"
+                            android:text="Selecione a categoria de usuário que mais combina com você:"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/edtBirthday" />
 
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/spnTypeUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/txtTypeUser" />
+
+                        <TextView
+                            android:id="@+id/edtTelephone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/shape_edit"
+                            android:inputType="number"
+                            android:padding="15dp"
+                            android:text="Digite seu Telefone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/spnTypeUser" />
+
+                        <TextView
+                            android:id="@+id/edtBiography"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/shape_edit"
+                            android:padding="15dp"
+                            android:text="Nos Conte um pouco sobre você :)"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/edtTelephone" />
+
+                        <TextView
+                            android:id="@+id/edtPass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/shape_edit"
+                            android:padding="15dp"
+                            android:text="Digite sua senha"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/edtBiography" />
+
+                        <Button
+                            android:id="@+id/btnRegisterUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/shape_button_pink"
+                            android:text="Cadastrar"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/edtPass" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.core.widget.NestedScrollView>
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

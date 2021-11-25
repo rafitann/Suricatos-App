@@ -10,7 +10,6 @@ import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.app.suricatos.databinding.FragmentRegisterBinding
-import com.app.suricatos.model.Address
 import com.app.suricatos.model.User
 import com.app.suricatos.utils.Cache
 import com.app.suricatos.utils.Status
@@ -70,7 +69,7 @@ class RegisterFragment : BaseFragment() {
         binding.btnRegisterUser.setOnClickListener {
             val user = User(
                 binding.edtName.text.toString(),
-                binding.edtEmail.text.toString(), binding.edtPasswordRegister.text.toString()
+                binding.edtEmail.text.toString(), binding.edtPass.text.toString()
             )
             viewModel.register(user)
         }
@@ -108,13 +107,13 @@ class RegisterFragment : BaseFragment() {
     }
 
     private fun validatePassword() {
-        binding.edtPasswordRegister.setOnFocusChangeListener { _, hasFocus: Boolean ->
+        binding.edtPass.setOnFocusChangeListener { _, hasFocus: Boolean ->
             if (hasFocus) return@setOnFocusChangeListener
 
-            if (binding.edtPasswordRegister.text.isEmpty() && binding.edtPasswordRegister.text.isNullOrBlank()) {
-                binding.edtPasswordRegister.error = "Digite seu Senha"
+            if (binding.edtPass.text.isEmpty() && binding.edtPass.text.isNullOrBlank()) {
+                binding.edtPass.error = "Digite seu Senha"
             } else {
-                binding.edtPasswordRegister.error = null
+                binding.edtPass.error = null
             }
         }
     }
