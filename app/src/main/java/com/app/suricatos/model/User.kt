@@ -3,16 +3,23 @@ package com.app.suricatos.model
 import java.io.Serializable
 
 data class User(
+    val id: Int,
     val name: String,
-    val email: String,
-    var password: String
+    val createdAt: String,
+    val updateAt: String,
+    val birthday: String,
+    val biography: String,
+    val type: String,
+    val email: String
 ) : Serializable
 
 
 data class Address(
-    val street: String,
-    val district: String,
-    val zipcode: String,
+    val state: String,
+    val number: String,
     val city: String,
-    val country: String
-):Serializable
+    val complement: String,
+    val zipcode: String,
+    val street: String,
+    val neighborhood: String
+) : Serializable
