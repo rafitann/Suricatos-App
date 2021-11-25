@@ -12,16 +12,16 @@ class RegisterViewModel : ViewModel() {
     val registerResponse: MutableLiveData<Resource<String>> = MutableLiveData()
     val registerRepository = RegisterRepository()
 
-    fun register(
-        user: User,
-    ) {
-        viewModelScope.launch {
-            try {
-                val data = registerRepository.register(user)
-                registerResponse.postValue(Resource.success(data))
-            } catch (e: Exception) {
-                registerResponse.postValue(Resource.error())
-            }
-        }
-    }
+//    fun register(
+//        user: User,
+//    ) {
+//        viewModelScope.launch {
+//            try {
+//                val data = registerRepository.register(user)
+//                registerResponse.postValue(Resource.success(data))
+//            } catch (e: Exception) {
+//                registerResponse.postValue(Resource.error())
+//            }
+//        }
+//    }
 }

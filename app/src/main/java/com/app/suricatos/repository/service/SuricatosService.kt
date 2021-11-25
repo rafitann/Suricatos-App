@@ -12,16 +12,16 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface SuricatosService {
-    @POST("user/login")
+    @POST("login")
     suspend fun login(@Body auth: Credencial): LoginDto
 
-    @POST("user")
-    suspend fun register(@Body user: User): RegisterDto
-
-    @POST("feed")
-    suspend fun createPost(@Body post: Post): FeedsDto
-
-    @GET("feed")
-    suspend fun getFeed(): List<FeedsDto>
+//    @POST("user")
+//    suspend fun register(@Body user: User): RegisterDto
+//
+//    @POST("feed")
+//    suspend fun createPost(@Body post: Post): FeedsDto
+//
+//    @GET("feed")
+//    suspend fun getFeed(): List<FeedsDto>
 
 }

@@ -18,27 +18,27 @@ class PostViewModel: ViewModel() {
     private val repository = PostRepository()
 
 
-    fun getPosts() {
-        viewModelScope.launch {
-            try {
-                posts.postValue(Resource.success(repository.getPosts()))
-            } catch (e: Exception) {
-                posts.postValue(Resource.error("Não autorizado", AuthenticationRequiredException()))
-            }
-        }
-    }
+//    fun getPosts() {
+//        viewModelScope.launch {
+//            try {
+//                posts.postValue(Resource.success(repository.getPosts()))
+//            } catch (e: Exception) {
+//                posts.postValue(Resource.error("Não autorizado", AuthenticationRequiredException()))
+//            }
+//        }
+//    }
 
-    fun createPost(post: Post) {
-        viewModelScope.launch {
-            try {
-                feed.postValue(Resource.success(repository.createPost(post)))
-            } catch (e: Exception) {
-                feed.postValue(Resource.error("Não autorizado", AuthenticationRequiredException()))
-            }
-        }
-
-
-    }
+//    fun createPost(post: Post) {
+//        viewModelScope.launch {
+//            try {
+//                feed.postValue(Resource.success(repository.createPost(post)))
+//            } catch (e: Exception) {
+//                feed.postValue(Resource.error("Não autorizado", AuthenticationRequiredException()))
+//            }
+//        }
+//
+//
+//    }
 
 
 }

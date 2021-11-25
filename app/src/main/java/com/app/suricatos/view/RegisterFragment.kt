@@ -32,7 +32,7 @@ class RegisterFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
@@ -66,13 +66,13 @@ class RegisterFragment : BaseFragment() {
     }
 
     fun btnRegister() {
-        binding.btnRegisterUser.setOnClickListener {
-            val user = User(
-                binding.edtName.text.toString(),
-                binding.edtEmail.text.toString(), binding.edtPass.text.toString()
-            )
-            viewModel.register(user)
-        }
+//        binding.btnRegisterUser.setOnClickListener {
+//            val user = User(
+//                binding.edtName.text.toString(),
+//                binding.edtEmail.text.toString(), binding.edtPass.text.toString()
+//            )
+//            viewModel.register(user)
+//        }
     }
 
     private fun setupViews() {

@@ -37,7 +37,7 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupPost()
         setupObservable()
-        postViewModel.getPosts()
+        //postViewModel.getPosts()
     }
 
     override fun onDestroyView() {

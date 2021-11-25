@@ -37,7 +37,7 @@ class PostFragment: BaseFragment() {
 
         binding.txtUserName.text = Cache.userName
 
-        setupListener()
+        //setupListener()
         setupObservable()
     }
 
@@ -46,26 +46,26 @@ class PostFragment: BaseFragment() {
         _binding = null
     }
 
-    private fun setupListener() {
-        binding.btnPublish.setOnClickListener {
-            val (validate, message) = isFormValidate()
-
-            if (validate) {
-
-                postViewModel.createPost(
-                    Post(
-                        title = "",
-                        category = "#buraco",
-                        description = binding.edtNewPost.text.toString(),
-                        author = Author(Cache.userName)
-                    )
-                )
-
-            } else {
-               showError(message)
-            }
-        }
-    }
+//    private fun setupListener() {
+//        binding.btnPublish.setOnClickListener {
+//            val (validate, message) = isFormValidate()
+//
+//            if (validate) {
+//
+//                postViewModel.createPost(
+//                    Post(
+//                        title = "",
+//                        category = "#buraco",
+//                        description = binding.edtNewPost.text.toString(),
+//                        author = Author(Cache.userName)
+//                    )
+//                )
+//
+//            } else {
+//               showError(message)
+//            }
+//        }
+//    }
 
     private fun setupObservable() {
 

@@ -7,8 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-private const val URL = "https://suricato.herokuapp.com"
-const val BASE_URL = "${URL}/api/v1/"
+const val BASE_URL = "https://suricatos-fiap.herokuapp.com"
 private const val VIACEP = "https://viacep.com.br/ws/"
 
 //--> /categories

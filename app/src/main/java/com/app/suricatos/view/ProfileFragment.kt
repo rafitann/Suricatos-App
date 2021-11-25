@@ -35,7 +35,7 @@ class ProfileFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupObservable()
         setupMyPost()
-        postViewModel.getPosts()
+        //postViewModel.getPosts()
     }
 
     override fun onDestroyView() {

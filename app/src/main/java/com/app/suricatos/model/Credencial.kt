@@ -3,6 +3,6 @@ package com.app.suricatos.model
 import java.io.Serializable
 
 data class Credencial(
-    val name: String,
+    val username: String,
     val password: String
 ) : Serializable

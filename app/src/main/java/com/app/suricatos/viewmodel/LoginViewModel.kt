@@ -12,12 +12,12 @@ class LoginViewModel : ViewModel() {
     val loginRepository = LoginRepository()
 
     fun postLogin(
-        name: String,
+        username: String,
         password: String
     ) {
         viewModelScope.launch {
             try {
-                val data = loginRepository.login(name, password)
+                val data = loginRepository.login(username, password)
                 loginResponse.postValue(Resource.success(data))
             } catch (e: Exception) {
                 loginResponse.postValue(Resource.error())

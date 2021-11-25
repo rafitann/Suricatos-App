@@ -8,8 +8,8 @@ class LoginRepository: Repository() {
 
     val service = retrofit.create(SuricatosService::class.java)
 
-    suspend fun login(name:String, password:String): Pair<String, String>{
-        val serviceLogin = service.login(Credencial(name,password))
+    suspend fun login(username:String, password:String): Pair<String, String>{
+        val serviceLogin = service.login(Credencial(username,password))
         Cache.token = serviceLogin.token
         Cache.userName = serviceLogin.name
 
