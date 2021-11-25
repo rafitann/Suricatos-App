@@ -50,6 +50,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:id="@+id/imgPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/icon_kimiko" />
@@ -60,11 +61,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:layout_marginTop="12dp"
                 android:gravity="center"
                 android:text="Alterar foto do perfil"
                 app:layout_constraintEnd_toEndOf="@+id/cardIconUserName"
+                app:layout_constraintHorizontal_bias="0.538"
                 app:layout_constraintStart_toStartOf="@+id/cardIconUserName"
                 app:layout_constraintTop_toBottomOf="@id/cardIconUserName" />
+
+            <Button
+                android:id="@+id/btnTakePhoto"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Tirar uma foto"
+                app:layout_constraintEnd_toEndOf="@+id/btnChangePhoto"
+                app:layout_constraintHorizontal_bias="0.538"
+                app:layout_constraintStart_toStartOf="@+id/btnChangePhoto"
+                app:layout_constraintTop_toBottomOf="@id/btnChangePhoto" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputUserName"
@@ -76,7 +92,7 @@
                 app:errorEnabled="true"
                 app:layout_constraintEnd_toStartOf="parent"
                 app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnChangePhoto">
+                app:layout_constraintTop_toBottomOf="@id/btnTakePhoto">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/userName"

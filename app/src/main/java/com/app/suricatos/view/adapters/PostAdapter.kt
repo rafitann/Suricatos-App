@@ -20,8 +20,8 @@ class PostAdapter(private val postList: List<Post>? = arrayListOf()) : RecyclerV
 
         holder.binding.titlePost.text =post.title
         holder.binding.descriptionPost.text = post.description
-        holder.binding.userNamePost.text = post.author.name
-        holder.binding.tagPost.text = post.category
+//        holder.binding.userNamePost.text = post.author.name
+//        holder.binding.tagPost.text = post.category
         holder.binding.commentNumberPost.text = "(${post.comments?.size ?: 0})"
 
         holder.binding.imagePost.load(post.id)
