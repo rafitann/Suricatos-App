@@ -15,6 +15,9 @@ interface SuricatosService {
     @POST("/login")
     suspend fun login(@Body auth: Credencial): Response<ResponseBody>
 
+    @POST("/logout")
+    suspend fun logout(): Response<ResponseBody>
+
     @GET("user/logged")
     suspend fun getUser(): UserResponse
 

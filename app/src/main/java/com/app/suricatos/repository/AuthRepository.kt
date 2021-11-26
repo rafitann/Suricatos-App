@@ -6,6 +6,7 @@ import com.app.suricatos.repository.service.SuricatosService
 import com.app.suricatos.utils.NoAuthorizationException
 import com.auth0.android.jwt.JWT
 import io.paperdb.Paper
+import java.lang.IllegalStateException
 import java.util.*
 
 
@@ -30,6 +31,12 @@ class AuthRepository : Repository() {
         }
 
         throw NoAuthorizationException()
+    }
+
+    suspend fun logout(): Boolean {
+        service.logout()
+        localCache.destroy()
+        return true
     }
 
     fun isLogged(): Boolean {
