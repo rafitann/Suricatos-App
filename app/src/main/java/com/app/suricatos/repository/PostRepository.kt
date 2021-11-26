@@ -1,11 +1,6 @@
 package com.app.suricatos.repository
 
-import com.app.suricatos.model.Author
-import com.app.suricatos.model.Post
-import com.app.suricatos.model.User
-import com.app.suricatos.model.response.FeedsDto
 import com.app.suricatos.repository.service.SuricatosService
-import com.app.suricatos.utils.Cache
 
 class PostRepository : Repository() {
     val service = retrofit.create(SuricatosService::class.java)

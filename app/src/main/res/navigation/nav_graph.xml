@@ -76,6 +76,8 @@
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.app.suricatos.view.EditProfileFragment"
-        android:label="EditProfileFragment" />
+        android:label="EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile"
+        />
 
 </navigation>

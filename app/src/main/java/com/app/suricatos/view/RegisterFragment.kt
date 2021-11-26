@@ -10,10 +10,12 @@ import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.app.suricatos.databinding.FragmentRegisterBinding
-import com.app.suricatos.model.User
+import com.app.suricatos.model.request.Phone
+import com.app.suricatos.model.request.RegisterUser
 import com.app.suricatos.utils.Cache
 import com.app.suricatos.utils.Status
 import com.app.suricatos.viewmodel.RegisterViewModel
+import kotlinx.android.synthetic.main.fragment_register.*
 
 class RegisterFragment : BaseFragment() {
     val viewModel: RegisterViewModel by viewModels()
@@ -66,13 +68,18 @@ class RegisterFragment : BaseFragment() {
     }
 
     fun btnRegister() {
-//        binding.btnRegisterUser.setOnClickListener {
-//            val user = User(
-//                binding.edtName.text.toString(),
-//                binding.edtEmail.text.toString(), binding.edtPass.text.toString()
-//            )
-//            viewModel.register(user)
-//        }
+        binding.btnRegisterUser.setOnClickListener {
+            val user = RegisterUser(
+                binding.edtName.text.toString(),
+                binding.edtBirthday.toString(),
+                "CIDADAO",
+                binding.edtBiography.toString(),
+                Phone(11, binding.edtTelephone.toString().toInt(), "COMMERCIAL"),
+                binding.edtEmail.text.toString(), binding.edtPass.text.toString(),
+                null
+            )
+            viewModel.register(user)
+        }
     }
 
     private fun setupViews() {
