@@ -57,6 +57,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:id="@+id/imgPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/icon_kimiko" />
@@ -207,10 +208,13 @@
                 app:layout_constraintTop_toBottomOf="@id/btnFAQ" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/btnExit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:text="Sair"
                 app:layout_constraintStart_toStartOf="@+id/btnAboutApp"
                 app:layout_constraintTop_toBottomOf="@id/btnAboutApp" />

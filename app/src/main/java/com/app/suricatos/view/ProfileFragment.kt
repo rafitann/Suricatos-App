@@ -11,14 +11,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.suricatos.databinding.FragmentProfileBinding
 import com.app.suricatos.utils.AuthenticationRequiredException
 import com.app.suricatos.utils.Status
+import com.app.suricatos.utils.extension.loadByUrl
 import com.app.suricatos.view.adapters.PostAdapter
 import com.app.suricatos.viewmodel.PostViewModel
+import com.app.suricatos.viewmodel.ProfileViewModel
+import com.app.suricatos.viewmodel.SettingsViewModel
 
 class ProfileFragment : BaseFragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
+    private val profileViewModel: ProfileViewModel by viewModels()
     private val postViewModel: PostViewModel by viewModels()
 
     override fun onCreateView(
@@ -33,9 +37,12 @@ class ProfileFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setupObservable()
         setupMyPost()
-        //postViewModel.getPosts()
+
+        profileViewModel.getUser()
+        postViewModel.getPosts()
     }
 
     override fun onDestroyView() {
@@ -53,6 +60,32 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun setupObservable() {
+        profileViewModel.user.observe(viewLifecycleOwner) {
+            when (it.status) {
+
+                Status.LOADING -> {
+                }
+                Status.SUCCESS -> {
+                    binding.imgPhoto.loadByUrl(it.data?.image)
+                    binding.txtUserName.text = it.data?.name
+                    binding.txtUserEmail.text = it.data?.email
+                }
+
+                Status.ERROR ->
+                    if (it.error is AuthenticationRequiredException) {
+                        Toast.makeText(
+                            context,
+                            "Ops.. Tente efetuar login novamente",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    } else {
+                        Toast.makeText(context, "Falha generica", Toast.LENGTH_LONG).show()
+                    }
+
+            }
+        }
+
         postViewModel.posts.observe(viewLifecycleOwner) {
             when(it.status) {
                 Status.LOADING -> {
