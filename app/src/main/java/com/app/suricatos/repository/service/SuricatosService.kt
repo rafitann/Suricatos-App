@@ -22,7 +22,7 @@ interface SuricatosService {
     suspend fun getPosts(): List<PostResponse>
 
     @POST("user")
-    suspend fun register(@Body user: RegisterUser): RegisterDto
+    suspend fun register(@Body user: RegisterUser): UserDto
 //
 //    @POST("feed")
 //    suspend fun createPost(@Body post: Post): FeedsDto

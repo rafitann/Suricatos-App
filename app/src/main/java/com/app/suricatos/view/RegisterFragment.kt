@@ -1,19 +1,19 @@
 package com.app.suricatos.view
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.app.suricatos.databinding.FragmentRegisterBinding
 import com.app.suricatos.model.request.Phone
 import com.app.suricatos.model.request.RegisterUser
+import com.app.suricatos.utils.DateUtils
 import com.app.suricatos.utils.Status
 import com.app.suricatos.viewmodel.RegisterViewModel
+import java.util.*
 
 class RegisterFragment : BaseFragment() {
     val viewModel: RegisterViewModel by viewModels()
@@ -48,12 +48,6 @@ class RegisterFragment : BaseFragment() {
             when (it.status) {
                 Status.SUCCESS -> {
 
-                    val sharedPref = context?.getSharedPreferences("session", Context.MODE_PRIVATE)
-                    sharedPref?.edit {
-                        putString("token", it.data)
-                        putString("username", binding.edtName.text.toString())
-                    }
-
                     val action = RegisterFragmentDirections.actionRegisterFragmentToHomeFragment()
                     findNavController().navigate(action)
                 }
@@ -69,12 +63,16 @@ class RegisterFragment : BaseFragment() {
         binding.btnRegisterUser.setOnClickListener {
             val user = RegisterUser(
                 binding.edtName.text.toString(),
-                binding.edtBirthday.toString(),
-                "CIDADAO",
-                binding.edtBiography.toString(),
-                Phone(11, binding.edtTelephone.toString().toInt(), "COMMERCIAL"),
-                binding.edtEmail.text.toString(), binding.edtPass.text.toString(),
-                null
+                DateUtils.parseStringToDate(binding.edtBirthday.text.toString()),
+                USER_TYPE_CIDADAO,
+                binding.edtBiography.text.toString(),
+                Phone(
+                    binding.edtDDD.text.toString(),
+                    binding.edtTelephone.text.toString(),
+                    COMMERCIAL
+                ),
+                binding.edtEmail.text.toString(),
+                binding.edtPass.text.toString(),
             )
             viewModel.register(user)
         }
@@ -121,6 +119,12 @@ class RegisterFragment : BaseFragment() {
                 binding.edtPass.error = null
             }
         }
+    }
+
+    companion object {
+        val COMMERCIAL = "COMMERCIAL"
+        val USER_TYPE_CIDADAO = "CIDADAO"
+        val USER_TYPE_PREFEITURA = "PREFEITURA"
     }
 
 }
