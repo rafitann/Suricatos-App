@@ -1,17 +1,19 @@
-package com.sofie.widget.camera
+package suricatos.core
 
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.sofie.widget.camera.R
 
-open class TakePictureActivity: AppCompatActivity() {
+open class TakePictureActivity : AppCompatActivity() {
 
     private val REQUEST_PERMISSION_CODE = 666
     private lateinit var permissions: List<String>
@@ -24,7 +26,12 @@ open class TakePictureActivity: AppCompatActivity() {
         statusBarColor(android.R.color.transparent)
 
         permissions = arrayListOf(Manifest.permission.CAMERA)
-            .filter { ContextCompat.checkSelfPermission(applicationContext!!, it) != PackageManager.PERMISSION_GRANTED }
+            .filter {
+                ContextCompat.checkSelfPermission(
+                    applicationContext!!,
+                    it
+                ) != PackageManager.PERMISSION_GRANTED
+            }
 
 
         setContentView(R.layout.activity_camera)
@@ -34,11 +41,19 @@ open class TakePictureActivity: AppCompatActivity() {
         super.onPostCreate(savedInstanceState)
 
         if (permissions.isNotEmpty()) {
-            ActivityCompat.requestPermissions(this, permissions.toTypedArray(), REQUEST_PERMISSION_CODE)
+            ActivityCompat.requestPermissions(
+                this,
+                permissions.toTypedArray(),
+                REQUEST_PERMISSION_CODE
+            )
         } else showImagePickerOptions()
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         when (requestCode) {
@@ -58,7 +73,9 @@ open class TakePictureActivity: AppCompatActivity() {
 
         if (requestCode == REQUEST_PERMISSION_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                showImagePickerOptions()
+                val image = data?.extras?.get("data") as Bitmap
+                val bundlePhoto = Bundle()
+                bundlePhoto.putParcelable("BitmapPhoto", image)
             }
         }
     }
@@ -93,7 +110,8 @@ open class TakePictureActivity: AppCompatActivity() {
 
     private fun launchCameraIntent() {
         cameraFragment = CameraFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.content, cameraFragment!!, "").commit()
+        supportFragmentManager.beginTransaction().replace(R.id.content, cameraFragment!!, "")
+            .commit()
 
     }
 

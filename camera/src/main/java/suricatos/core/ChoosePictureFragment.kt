@@ -1,9 +1,10 @@
-package com.sofie.widget.camera
+package suricatos.core
 
 import android.app.Dialog
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.DialogFragment
+import com.sofie.widget.camera.R
 import kotlinx.android.synthetic.main.fragment_choose.*
 
 class ChoosePictureFragment: DialogFragment() {

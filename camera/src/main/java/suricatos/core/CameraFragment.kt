@@ -1,4 +1,4 @@
-package com.sofie.widget.camera
+package suricatos.core
 
 import android.app.Activity
 import android.content.Intent
@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
+import com.sofie.widget.camera.R
 import com.steelkiwi.cropiwa.config.InitialPosition
 import kotlinx.android.synthetic.main.fragment_camera.*
 import java.io.ByteArrayOutputStream

@@ -1,10 +1,11 @@
-package com.sofie.widget.camera
+package suricatos.core
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.sofie.widget.camera.R
 
 class GalleryFragment: Fragment() {
 

@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_homeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="Post"
+            app:argType="com.app.suricatos.model.Post" />
     </fragment>
     <fragment
         android:id="@+id/postFragment"
@@ -81,6 +84,16 @@
         android:name="com.app.suricatos.view.EditProfileFragment"
         android:label="EditProfileFragment"
         tools:layout="@layout/fragment_edit_profile"
+        />
+    <activity
+        android:id="@+id/takePictureActivity2"
+        android:name="suricatos.core.TakePictureActivity"
+        android:label="TakePictureActivity" />
+    <fragment
+        android:id="@+id/postDetailsFragment"
+        android:name="com.app.suricatos.view.PostDetailsFragment"
+        android:label="PostDetailsFragment"
+        tools:layout="@layout/fragment_post_details"
         />
 
 </navigation>

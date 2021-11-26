@@ -1,4 +1,4 @@
-package com.sofie.widget.camera.core.view
+package suricatos.core
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -13,7 +13,6 @@ import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.WindowManager
 import android.widget.RelativeLayout
-import kotlinx.android.synthetic.main.activity_camera.view.*
 import kotlin.math.ceil
 
 class OldCameraView: RelativeLayout, Device, SurfaceHolder.Callback, Camera.PreviewCallback {

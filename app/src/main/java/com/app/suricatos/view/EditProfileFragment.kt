@@ -1,11 +1,13 @@
 package com.app.suricatos.view
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.app.suricatos.databinding.FragmentEditProfileBinding
+import suricatos.core.TakePictureActivity
 
 class EditProfileFragment : BaseFragment() {
 
@@ -28,8 +30,9 @@ class EditProfileFragment : BaseFragment() {
     }
 
     fun moveToCamera(){
-        binding.btnChangePhoto.setOnClickListener {
-            startActivity(Intent(this.requireContext(), CameraActivity::class.java))
+        binding.btnTakePhoto.setOnClickListener {
+//            startActivityForResult(Intent(this.requireContext(), TakePictureActivity::class.java),1)
+
         }
     }
 

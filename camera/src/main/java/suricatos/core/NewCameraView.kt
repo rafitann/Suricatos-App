@@ -1,4 +1,4 @@
-package com.sofie.widget.camera.core.view
+package suricatos.core
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
