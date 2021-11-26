@@ -9,9 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.app.suricatos.databinding.FragmentPostBinding
-import com.app.suricatos.model.Author
-import com.app.suricatos.model.Post
-import com.app.suricatos.utils.Cache
 import com.app.suricatos.utils.Status
 import com.app.suricatos.viewmodel.PostViewModel
 
@@ -35,7 +32,7 @@ class PostFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.txtUserName.text = Cache.userName
+        binding.txtUserName.text = ""
 
         //setupListener()
         setupObservable()

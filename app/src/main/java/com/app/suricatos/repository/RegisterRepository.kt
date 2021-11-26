@@ -6,7 +6,7 @@ import com.app.suricatos.repository.service.SuricatosService
 
 class RegisterRepository : Repository() {
     val service = retrofit.create(SuricatosService::class.java)
-
+    
     suspend fun register(user: RegisterUser): UserDto {
         return service.register(user)
     }
