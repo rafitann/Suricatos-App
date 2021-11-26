@@ -15,8 +15,8 @@ data class Post(
     var updateAt: Date,
     val address: Address,
     val user: User,
-    val comments: Array<Comment>? = null,
-    val images: Array<String>,
+    val comments: List<Comment>? = null,
+    val images: List<String>,
     val postReply: List<PostReply>? = null,
     val userImage: String?,
 ) : Serializable

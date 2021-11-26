@@ -77,7 +77,9 @@ class PostRepository : Repository() {
 
     private fun PostReplyDto.toPostReply(): PostReply {
         return PostReply(
-            id,
+            id.toString(),
+            createdAt,
+            updateAt,
             description,
             externalLink,
             externalProtocol,

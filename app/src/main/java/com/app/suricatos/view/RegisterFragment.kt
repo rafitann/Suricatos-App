@@ -14,7 +14,6 @@ import com.app.suricatos.model.request.Phone
 import com.app.suricatos.model.request.RegisterUser
 import com.app.suricatos.utils.Status
 import com.app.suricatos.viewmodel.RegisterViewModel
-import kotlinx.android.synthetic.main.fragment_register.*
 
 class RegisterFragment : BaseFragment() {
     val viewModel: RegisterViewModel by viewModels()

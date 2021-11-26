@@ -44,6 +44,8 @@ data class AddressDto(
 
 data class PostReplyDto(
     val id: Int,
+    val createdAt: String,
+    val updateAt: String,
     val description: String,
     val externalLink: String,
     val externalProtocol: String,
