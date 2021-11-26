@@ -115,6 +115,8 @@
                 android:padding="15dp"
                 android:textColorHint="#CCC4C4"
                 android:textSize="14dp"
+                android:digits="0123456789/"
+                android:inputType="number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/edtEmail" />
@@ -169,6 +171,7 @@
                 android:hint="Digite seu Telefone"
                 android:textColorHint="#CCC4C4"
                 android:textSize="14dp"
+                android:digits="0123456789-"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/edtDDD"
                 app:layout_constraintTop_toBottomOf="@id/spnTypeUser" />

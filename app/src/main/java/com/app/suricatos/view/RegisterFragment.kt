@@ -11,6 +11,7 @@ import com.app.suricatos.databinding.FragmentRegisterBinding
 import com.app.suricatos.model.request.Phone
 import com.app.suricatos.model.request.RegisterUser
 import com.app.suricatos.utils.DateUtils
+import com.app.suricatos.utils.Mask
 import com.app.suricatos.utils.Status
 import com.app.suricatos.viewmodel.RegisterViewModel
 import java.util.*
@@ -79,6 +80,9 @@ class RegisterFragment : BaseFragment() {
     }
 
     private fun setupViews() {
+        binding.edtBirthday.addTextChangedListener(Mask.Watcher(Mask.Format.DATE))
+        binding.edtTelephone.addTextChangedListener(Mask.Watcher(Mask.Format.MOBILE_PHONE, Mask.Format.PHONE))
+
         validateName()
         validateEmail()
         validatePassword()

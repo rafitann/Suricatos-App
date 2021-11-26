@@ -99,8 +99,8 @@ class HomeFragment : BaseFragment() {
                 Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
                     if (it.error is AuthenticationRequiredException) {
-                        val action = HomeFragmentDirections.actionHomeFragmentToLoginFragment()
-                        findNavController().navigate(action)
+//                        val action = HomeFragmentDirections.actionHomeFragmentToLoginFragment()
+//                        findNavController().navigate(action)
 
                         Toast.makeText(
                             context,
