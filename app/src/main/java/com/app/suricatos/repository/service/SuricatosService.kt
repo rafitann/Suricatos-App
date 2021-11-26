@@ -15,7 +15,7 @@ interface SuricatosService {
     suspend fun login(@Body auth: Credencial): Response<ResponseBody>
 
     @POST("user")
-    suspend fun register(@Body user: RegisterUser): RegisterDto
+    suspend fun register(@Body user: RegisterUser): UserDto
 //
 //    @POST("feed")
 //    suspend fun createPost(@Body post: Post): FeedsDto

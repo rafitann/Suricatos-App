@@ -10,7 +10,7 @@ import com.app.suricatos.utils.Resource
 import kotlinx.coroutines.launch
 
 class RegisterViewModel : ViewModel() {
-    val registerResponse: MutableLiveData<Resource<String>> = MutableLiveData()
+    val registerResponse: MutableLiveData<Resource<UserDto>> = MutableLiveData()
     val registerRepository = RegisterRepository()
 
     fun register(

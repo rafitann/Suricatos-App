@@ -10,5 +10,4 @@ data class RegisterUser(
     val phone: Phone,
     val email: String,
     val password: String,
-    val image: String? = null,
 ) : Serializable
