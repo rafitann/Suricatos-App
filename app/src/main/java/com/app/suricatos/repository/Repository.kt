@@ -1,6 +1,9 @@
 package com.app.suricatos.repository
 
+import com.app.suricatos.BuildConfig
+import com.app.suricatos.model.Auth
 import com.app.suricatos.utils.Cache
+import io.paperdb.Paper
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -36,13 +39,21 @@ open class Repository() {
         fun httpClient(): OkHttpClient {
             val client = OkHttpClient.Builder()
 
-            val logging = HttpLoggingInterceptor()
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-            client.addInterceptor(logging)
+            if (BuildConfig.DEBUG) {
+                val logging = HttpLoggingInterceptor()
+                logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+                client.addInterceptor(logging)
+            }
+
             client.addInterceptor {
                 val builder = it.request().newBuilder()
-                if(Cache.token.isNotBlank())
-                    builder.addHeader("Authorization", Cache.token)
+
+                val localCache = Paper.book("session")
+                if (localCache.read("logged", false)) {
+                    val auth = localCache.read<Auth>(Auth::class.java.simpleName)
+                    builder.addHeader("Authorization", auth.token)
+                }
+
                 it.proceed(builder.build())
             }
 
