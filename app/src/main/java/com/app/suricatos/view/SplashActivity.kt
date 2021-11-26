@@ -1,18 +1,20 @@
 package com.app.suricatos.view
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.app.suricatos.R
 import com.app.suricatos.databinding.ActivitySplashBinding
-import com.app.suricatos.utils.Cache
+import com.app.suricatos.viewmodel.SplashViewModel
 
-class SplashActivity: Activity() {
+class SplashActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
+    private val viewModel: SplashViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,7 @@ class SplashActivity: Activity() {
     }
 
     private fun verifyStatusApp() {
-        if(isLogged(baseContext))
+        if(viewModel.isLogged())
             navigateToHome()
         else
             navigateToLogin()
@@ -46,20 +48,5 @@ class SplashActivity: Activity() {
     private fun navigateToHome() {
         startActivity(Intent(this, BaseActivity::class.java))
         finish()
-    }
-
-    private fun isLogged(context: Context): Boolean {
-        val sharedPref = context.getSharedPreferences("session", Context.MODE_PRIVATE)
-        val token = sharedPref.getString("token", "")
-
-
-        val contains = !token.isNullOrEmpty()
-
-        if(contains) {
-            Cache.token = token!!
-            Cache.userName = sharedPref.getString("username", "")!!
-        }
-
-        return contains
     }
 }

@@ -1,19 +1,14 @@
 package com.app.suricatos.repository.service
 
 import com.app.suricatos.model.Credencial
-import com.app.suricatos.model.Post
-import com.app.suricatos.model.User
-import com.app.suricatos.model.response.FeedsDto
-import com.app.suricatos.model.response.LoginDto
-import com.app.suricatos.model.response.RegisterDto
+import okhttp3.ResponseBody
+import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.Path
 
 interface SuricatosService {
     @POST("login")
-    suspend fun login(@Body auth: Credencial): LoginDto
+    suspend fun login(@Body auth: Credencial): Response<ResponseBody>
 
 //    @POST("user")
 //    suspend fun register(@Body user: User): RegisterDto

@@ -48,12 +48,6 @@ class LoginFragment : BaseFragment() {
         viewModel.loginResponse.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
-                    val sharedPref = context?.getSharedPreferences("session", Context.MODE_PRIVATE)
-                    sharedPref?.edit {
-                        putString("token", it.data?.first)
-                        putString("username", it.data?.second)
-                    }
-
                     val action = R.id.action_loginFragment_to_homeFragment
                     findNavController().navigate(action)
                 }
