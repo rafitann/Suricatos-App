@@ -27,6 +27,20 @@ class EditProfileFragment : BaseFragment() {
         moveToCamera()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        binding.imgPhoto.onActivityResult(requestCode,resultCode,data)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        binding.imgPhoto.onRequestPermissionsResult(requestCode,permissions,grantResults)
+    }
+
     fun moveToCamera(){
         binding.btnChangePhoto.setOnClickListener {
             startActivity(Intent(this.requireContext(), CameraActivity::class.java))

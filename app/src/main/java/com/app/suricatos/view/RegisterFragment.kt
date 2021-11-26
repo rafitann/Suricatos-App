@@ -1,5 +1,6 @@
 package com.app.suricatos.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -44,6 +45,21 @@ class RegisterFragment : BaseFragment() {
         _binding = null
     }
 
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        binding.imgPhoto.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        binding.imgPhoto.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
     fun observable() {
         viewModel.registerResponse.observe(viewLifecycleOwner) {
             when (it.status) {
@@ -81,7 +97,12 @@ class RegisterFragment : BaseFragment() {
 
     private fun setupViews() {
         binding.edtBirthday.addTextChangedListener(Mask.Watcher(Mask.Format.DATE))
-        binding.edtTelephone.addTextChangedListener(Mask.Watcher(Mask.Format.MOBILE_PHONE, Mask.Format.PHONE))
+        binding.edtTelephone.addTextChangedListener(
+            Mask.Watcher(
+                Mask.Format.MOBILE_PHONE,
+                Mask.Format.PHONE
+            )
+        )
 
         validateName()
         validateEmail()
