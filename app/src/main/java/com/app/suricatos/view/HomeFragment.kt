@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.suricatos.databinding.FragmentHomeBinding
 import com.app.suricatos.utils.AuthenticationRequiredException
-import com.app.suricatos.utils.Cache
 import com.app.suricatos.utils.Status
+import com.app.suricatos.utils.extension.loadByUrl
 import com.app.suricatos.view.adapters.PostAdapter
 import com.app.suricatos.viewmodel.PostViewModel
 
@@ -35,9 +35,12 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setupPost()
         setupObservable()
-        //postViewModel.getPosts()
+
+        postViewModel.getUser()
+        postViewModel.getPosts()
     }
 
     override fun onDestroyView() {
@@ -46,8 +49,6 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupPost() {
-        binding.txtUserName.text = Cache.userName
-
         binding.recyclerPost.layoutManager = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.VERTICAL,
@@ -56,6 +57,33 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupObservable() {
+
+        postViewModel.user.observe(viewLifecycleOwner) {
+            when (it.status) {
+
+                Status.LOADING -> { }
+                Status.SUCCESS -> {
+                    binding.txtUserName.text = it.data?.name
+                    binding.imgPhoto.loadByUrl(it.data?.image)
+                }
+
+                Status.ERROR -> {
+                    binding.progressBar.visibility = View.GONE
+                    if (it.error is AuthenticationRequiredException) {
+                        Toast.makeText(
+                            context,
+                            "Ops.. Tente efetuar login novamente",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    } else {
+                        Toast.makeText(context, "Falha generica", Toast.LENGTH_LONG).show()
+                    }
+
+                }
+            }
+        }
+
         postViewModel.posts.observe(viewLifecycleOwner) {
             when (it.status) {
 

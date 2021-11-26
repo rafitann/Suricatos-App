@@ -1,7 +1,5 @@
 package com.app.suricatos.model.response
 
-import com.app.suricatos.model.Author
-import com.app.suricatos.model.Categories
 import com.app.suricatos.model.Comment
 
 data class FeedsDto(

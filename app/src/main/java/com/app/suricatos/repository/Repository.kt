@@ -2,7 +2,6 @@ package com.app.suricatos.repository
 
 import com.app.suricatos.BuildConfig
 import com.app.suricatos.model.Auth
-import com.app.suricatos.utils.Cache
 import io.paperdb.Paper
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -10,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-const val BASE_URL = "https://suricatos-fiap.herokuapp.com"
+const val BASE_URL = "https://suricatos-fiap.herokuapp.com/api/"
 private const val VIACEP = "https://viacep.com.br/ws/"
 
 //--> /categories
@@ -51,7 +50,7 @@ open class Repository() {
                 val localCache = Paper.book("session")
                 if (localCache.read("logged", false)) {
                     val auth = localCache.read<Auth>(Auth::class.java.simpleName)
-                    builder.addHeader("Authorization", auth.token)
+                    builder.addHeader("Authorization", "Bearer ${auth.token}")
                 }
 
                 it.proceed(builder.build())

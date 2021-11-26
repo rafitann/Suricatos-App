@@ -10,8 +10,6 @@ import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.app.suricatos.databinding.FragmentRegisterBinding
-import com.app.suricatos.model.User
-import com.app.suricatos.utils.Cache
 import com.app.suricatos.utils.Status
 import com.app.suricatos.viewmodel.RegisterViewModel
 
@@ -47,7 +45,7 @@ class RegisterFragment : BaseFragment() {
         viewModel.registerResponse.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
-                    Cache.userName = binding.edtName.text.toString()
+
                     val sharedPref = context?.getSharedPreferences("session", Context.MODE_PRIVATE)
                     sharedPref?.edit {
                         putString("token", it.data)

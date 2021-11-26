@@ -1,25 +1,26 @@
 package com.app.suricatos.model
 
 import java.io.Serializable
+import java.util.*
 
 data class User(
     val id: Int,
     val name: String,
-    val createdAt: String,
-    val updateAt: String,
-    val birthday: String,
+    val birthday: Date,
+    val email: String,
     val biography: String,
     val type: String,
-    val email: String
+    val phone: Phone?,
+    val image: String?,
+    val createdAt: Date,
+    val updateAt: Date,
 ) : Serializable
 
-
-data class Address(
-    val state: String,
+data class Phone(
+    val id: Int,
+    val ddd: String,
     val number: String,
-    val city: String,
-    val complement: String,
-    val zipcode: String,
-    val street: String,
-    val neighborhood: String
-) : Serializable
+    val type: String,
+    val createdAt: Date,
+    val updateAt: Date,
+): Serializable
