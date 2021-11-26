@@ -141,6 +141,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="16dp"
+                            android:layout_marginTop="16dp"
                             android:gravity="start"
                             android:text="Selecione a categoria de usuário que mais combina com você:"
                             app:layout_constraintEnd_toEndOf="parent"

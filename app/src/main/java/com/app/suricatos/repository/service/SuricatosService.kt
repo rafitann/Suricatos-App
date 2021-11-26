@@ -5,6 +5,10 @@ import com.app.suricatos.model.response.PostResponse
 import com.app.suricatos.model.response.UserResponse
 import okhttp3.ResponseBody
 import retrofit2.Response
+import com.app.suricatos.model.request.RegisterUser
+import com.app.suricatos.model.response.LoginDto
+import com.app.suricatos.model.response.RegisterDto
+import com.app.suricatos.model.response.UserDto
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -19,8 +23,8 @@ interface SuricatosService {
     @GET("post")
     suspend fun getPosts(): List<PostResponse>
 
-//    @POST("user")
-//    suspend fun register(@Body user: User): RegisterDto
+    @POST("user")
+    suspend fun register(@Body user: RegisterUser): RegisterDto
 //
 //    @POST("feed")
 //    suspend fun createPost(@Body post: Post): FeedsDto

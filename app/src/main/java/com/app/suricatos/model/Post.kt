@@ -7,19 +7,19 @@ data class Post(
     val id: Int,
     val description: String,
     val like: Int,
-    val slug: String,
+    var slug: String? = "slug",
     val status: String,
     val title: String,
     val type: String,
-    val createdAt: Date,
-    val updateAt: Date,
+    var createdAt: Date,
+    var updateAt: Date,
     val address: Address,
     val user: User,
-    val comments: List<Comment>,
-    val images: List<String>,
-    val postReply: List<PostReply>,
+    val comments: Array<Comment>? = null,
+    val images: Array<String>,
+    val postReply: List<PostReply>? = null,
     val userImage: String?,
-): Serializable
+) : Serializable
 
 data class Comment(
     val id: Int,
@@ -30,12 +30,14 @@ data class Comment(
 ): Serializable
 
 data class PostReply(
-    val id: Int,
+    var id: String,
+    var createdAt: String,
+    var updateAt: String,
     val description: String,
     val externalLink: String,
-    val externalProtocol: String,
-    val user: User
-): Serializable
+    val externalProtocol:String,
+    val user: User,
+) : Serializable
 
 data class Address(
     val id: Int,

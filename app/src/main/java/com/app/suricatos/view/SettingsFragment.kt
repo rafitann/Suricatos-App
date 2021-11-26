@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.app.suricatos.databinding.FragmentSettingsBinding
 
 class SettingsFragment : BaseFragment() {
@@ -20,9 +21,19 @@ class SettingsFragment : BaseFragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnEditProfile.setOnClickListener {
+
+            val action = SettingsFragmentDirections.actionSettingsFragmentToEditProfileFragment()
+            findNavController().navigate(action)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 
 }
