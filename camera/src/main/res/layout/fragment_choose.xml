@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/background_item"
+        android:elevation="2dp"
+        android:padding="10dp"
+        >
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:text="Adicionar imagem"
+            />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/aluminum"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            />
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            >
+
+        <LinearLayout
+                android:id="@+id/button_take_picture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_photo_camera_white_24dp"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="16dp"
+                    android:text="Tirar foto"
+                    />
+
+        </LinearLayout>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/aluminum"
+                />
+
+        <LinearLayout
+                android:id="@+id/button_take_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_photo_camera_white_24dp"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="16dp"
+                    android:text="Escolher imagem"
+                    />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
