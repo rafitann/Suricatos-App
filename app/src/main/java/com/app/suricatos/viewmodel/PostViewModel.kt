@@ -26,7 +26,7 @@ class PostViewModel: ViewModel() {
             try {
                 user.postValue(Resource.success(userRepository.getUser()))
             } catch (e: Exception) {
-                posts.postValue(Resource.error("Não autorizado", AuthenticationRequiredException()))
+                user.postValue(Resource.error("Não autorizado", AuthenticationRequiredException()))
             }
         }
     }

@@ -24,7 +24,7 @@ interface SuricatosService {
     @GET("post")
     suspend fun getPosts(): List<PostResponse>
 
-    @POST("user")
+    @POST("/user")
     suspend fun register(@Body user: RegisterUser): UserResponse
 //
 //    @POST("feed")

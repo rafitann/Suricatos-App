@@ -70,11 +70,11 @@ class HomeFragment : BaseFragment() {
                 Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
                     if (it.error is AuthenticationRequiredException) {
-                        Toast.makeText(
-                            context,
-                            "Ops.. Tente efetuar login novamente",
-                            Toast.LENGTH_LONG
-                        ).show()
+//                        Toast.makeText(
+//                            context,
+//                            "Ops.. Tente efetuar login novamente",
+//                            Toast.LENGTH_LONG
+//                        ).show()
 
                     } else {
                         Toast.makeText(context, "Falha generica", Toast.LENGTH_LONG).show()

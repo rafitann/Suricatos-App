@@ -48,13 +48,13 @@ class RegisterFragment : BaseFragment() {
             when (it.status) {
                 Status.SUCCESS -> {
 
-                    val action = RegisterFragmentDirections.actionRegisterFragmentToHomeFragment()
+                    val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
                     findNavController().navigate(action)
                 }
                 Status.ERROR -> {
                     Log.d("ERRO DE REGISTRO", "${it.error}")
                 }
-            }
+            }//luis.carlos@gmail.com
         }
 
     }
