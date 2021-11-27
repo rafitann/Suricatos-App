@@ -1,16 +1,16 @@
 package com.app.suricatos.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.navigation.NavController
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.app.suricatos.R
 import com.app.suricatos.databinding.ActivityBaseBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -36,6 +36,24 @@ open class BaseActivity : AppCompatActivity() {
             val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
             navController.navigate(extras.getInt("NAVIGATION"))
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        val navHostFragment: Fragment? = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+        (navHostFragment!!.childFragmentManager.fragments[0]).onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        val navHostFragment: Fragment? = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+        (navHostFragment!!.childFragmentManager.fragments[0]).onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
 

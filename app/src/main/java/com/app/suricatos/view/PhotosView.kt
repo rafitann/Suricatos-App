@@ -22,6 +22,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
+import androidx.fragment.app.Fragment
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import java.io.File
@@ -36,6 +37,8 @@ class PhotosView : androidx.appcompat.widget.AppCompatImageView {
     private var showCamera: Boolean = false
     private var directory: File? = null
 
+    private var fragment: Fragment? = null
+
     constructor(context: Context, attrs: AttributeSet? = null) :
             super(context, attrs) {
         initialize(attrs)
@@ -47,6 +50,7 @@ class PhotosView : androidx.appcompat.widget.AppCompatImageView {
     }
 
     private fun initialize(attrs: AttributeSet?) {
+        directory = context.externalCacheDir as File
         permissions =
             arrayListOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .filter {
@@ -73,7 +77,7 @@ class PhotosView : androidx.appcompat.widget.AppCompatImageView {
                         this.permissions.toMutableList().clear()
                         Toast.makeText(context as Activity, "Camera habilitada", Toast.LENGTH_SHORT)
                             .show()
-                        //mounted()
+                        openCamera()
                     }
                 }
             }
@@ -89,7 +93,6 @@ class PhotosView : androidx.appcompat.widget.AppCompatImageView {
         }
     }
 
-
     private fun openCamera() {
         if (permissions.isNotEmpty()) {
             ActivityCompat.requestPermissions(
@@ -99,6 +102,7 @@ class PhotosView : androidx.appcompat.widget.AppCompatImageView {
             )
             return
         }
+
         showCamera = true
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
@@ -120,7 +124,8 @@ class PhotosView : androidx.appcompat.widget.AppCompatImageView {
         )
         intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, CameraProfile.QUALITY_HIGH)
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        (context as? AppCompatActivity)?.startActivityForResult(intent, 1)
+
+        (context as AppCompatActivity).startActivityForResult(intent, 1)
     }
 
     private fun setImage(attach: File) {
